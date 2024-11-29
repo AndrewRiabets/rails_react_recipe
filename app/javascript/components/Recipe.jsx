@@ -16,7 +16,9 @@ const Recipe = () => {
         throw new Error('Network response was not ok.');
       })
       .then((response) => setRecipe(response))
-      .catch(() => navigate('/recipes'));
+			.catch((error) => {
+				console.error('Error fetching the recipe:', error);
+				navigate('/recipes');
   }, [params.id]);
 
   const addHtmlEntities = (str) => {
