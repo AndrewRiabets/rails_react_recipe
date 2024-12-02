@@ -16,6 +16,7 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def show
+    render json: @recipe
   end
 
   def destroy
