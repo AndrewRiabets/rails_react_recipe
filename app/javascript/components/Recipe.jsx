@@ -2,20 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const Recipe = () => {
-  console.log('hello');
   const params = useParams();
   const navigate = useNavigate();
   const [recipe, setRecipe] = useState({ ingredients: '' });
-  console.log(params);
-  console.log(recipe);
 
   useEffect(() => {
     const url = `/api/v1/show/${params.id}`;
-    console.log(url);
     fetch(url)
       .then((response) => {
         if (response.ok) {
-          console.log(response);
           return response.json();
         }
         throw new Error('Network response was not ok.');
@@ -23,7 +18,6 @@ const Recipe = () => {
       .then((response) => setRecipe(response))
       .catch(() => navigate('/recipes'));
   }, [params.id]);
-  console.log(2);
   const addHtmlEntities = (str) => {
     return String(str).replace(/&lt;/g, '<').replace(/&gt;/g, '>');
   };
