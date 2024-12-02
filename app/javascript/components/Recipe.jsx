@@ -11,14 +11,13 @@ const Recipe = () => {
     fetch(url)
       .then((response) => {
         if (response.ok) {
+          console.log(response);
           return response.json();
         }
         throw new Error('Network response was not ok.');
       })
       .then((response) => setRecipe(response))
-			.catch((error) => {
-				console.error('Error fetching the recipe:', error);
-				navigate('/recipes');
+      .catch(() => navigate('/recipes'));
   }, [params.id]);
 
   const addHtmlEntities = (str) => {
