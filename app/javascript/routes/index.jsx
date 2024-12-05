@@ -4,9 +4,11 @@ import Home from '../components/Home';
 import Recipes from '../components/Recipes';
 import Recipe from '../components/Recipe';
 import NewRecipe from '../components/NewRecipe';
+import Header from '../components/Header';
 
 export default (
   <Router>
+    <Header />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/recipes" element={<Recipes />} />
